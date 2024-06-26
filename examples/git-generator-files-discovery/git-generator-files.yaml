@@ -25,7 +25,7 @@ spec:
         path: "examples/git-generator-files-discovery/apps/guestbook"
         kustomize:
           images:
-            - 'gcr.io/heptio-images/ks-guestbook-demo=gcr.io/heptio-images/ks-guestbook-demo:3'
+            - 'ks-guestbook-demo=ks-guestbook-demo:3'
       destination:
         server: '{{cluster.address}}'
         namespace: guestbook
