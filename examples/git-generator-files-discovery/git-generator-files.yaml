@@ -22,6 +22,9 @@ spec:
         repoURL: https://github.com/salazarch/applicationset.git
         targetRevision: HEAD
         path: "examples/git-generator-files-discovery/apps/guestbook"
+        kustomize:
+          images:
+            - gcr.io/heptio-images/ks-guestbook-demo:0.2
       destination:
         #server: https://kubernetes.default.svc
         server: '{{cluster.address}}'
