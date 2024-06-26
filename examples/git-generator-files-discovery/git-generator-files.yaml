@@ -27,5 +27,5 @@ spec:
         server: '{{cluster.address}}'
         namespace: guestbook
       parameters:
-      - name: image
+      - name: image2
         value: '{{image}}'
