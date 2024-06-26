@@ -2,20 +2,21 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: guestbook
+  namespace: argocd
 spec:
   generators:
     - git:
         repoURL: https://github.com/salazarch/applicationset.git
         revision: HEAD
         files:
-        - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
+          - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
     - list:
         elements:
           - name: guestbook
-            image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+            image: "0.2"  # Ensure this is a string
   template:
     metadata:
-      name: '{{cluster.name}}-guestbook'
+      name: '{{name}}-guestbook'
     spec:
       project: default
       source:
@@ -24,11 +25,9 @@ spec:
         path: "examples/git-generator-files-discovery/apps/guestbook"
         kustomize:
           images:
-            - gcr.io/heptio-images/ks-guestbook-demo:0.2
+            - name: gcr.io/heptio-images/ks-guestbook-demo
+              newName: gcr.io/heptio-images/ks-guestbook-demo
+              newTag: '{{image}}'  # Ensure this is passed as a string
       destination:
-        #server: https://kubernetes.default.svc
         server: '{{cluster.address}}'
         namespace: guestbook
-      parameters:
-      - name: image2
-        value: '{{image}}'
