@@ -9,6 +9,9 @@ spec:
         revision: HEAD
         files:
         - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
+    - list:
+        elements:
+          - image: {{image}}
   template:
     metadata:
       name: '{{cluster.name}}-guestbook'
