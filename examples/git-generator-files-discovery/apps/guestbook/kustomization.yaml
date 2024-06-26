@@ -8,5 +8,4 @@ kind: Kustomization
 
 images:
   - name: gcr.io/heptio-images/ks-guestbook-demo
-    newName: gcr.io/heptio-images/ks-guestbook-demo
-    newTag: "{{ .Values.image }}"
+    newTag: 0.3
