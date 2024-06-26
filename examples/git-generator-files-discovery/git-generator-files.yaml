@@ -10,11 +10,11 @@ spec:
         files:
         - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
     - list:
-      elements:
-         - cluster:
-            name: "test-cluster"
-            address: "https://kubernetes.default.svc/"
-            image: "gcr.io/heptio-images/ks-guestbook-demo:0.2"
+        elements:
+          - cluster:
+              name: "test-cluster"
+              address: "https://kubernetes.default.svc/"
+          image: "gcr.io/heptio-images/ks-guestbook-demo:0.2"
   template:
     metadata:
       name: '{{cluster.name}}-guestbook'
