@@ -9,4 +9,4 @@ kind: Kustomization
 images:
   - name: guestbook
     newName: gcr.io/heptio-images/ks-guestbook-demo
-    newTag: "0.2"
+    newTag: "{{ .Values.image }}"
