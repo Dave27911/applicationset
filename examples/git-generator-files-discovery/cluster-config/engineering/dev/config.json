@@ -4,7 +4,8 @@
     "name" : "develop-cluster",
     "address" : "https://kubernetes.default.svc"
   },
+  "image" : "gcr.io/heptio-images/ks-guestbook-demo:0.2",
   "aws_account" : "123456",
   "name" : "test_dev",
-  "asset_id" : "13"
+  "asset_id" : "14"
 }
