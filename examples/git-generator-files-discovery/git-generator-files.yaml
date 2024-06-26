@@ -9,6 +9,10 @@ spec:
         revision: HEAD
         files:
         - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
+    - list:
+        elements:
+          - name: guestbook
+            image: gcr.io/heptio-images/ks-guestbook-demo:0.2
   template:
     metadata:
       name: '{{cluster.name}}-guestbook'
