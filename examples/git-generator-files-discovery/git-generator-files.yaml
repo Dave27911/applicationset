@@ -4,6 +4,9 @@ metadata:
   name: guestbook
   namespace: argocd
 spec:
+  kustomize:
+    images:
+      - 'gcr.io/heptio-images/ks-guestbook-demo:0.2'
   generators:
     - git:
         repoURL: https://github.com/salazarch/applicationset.git
