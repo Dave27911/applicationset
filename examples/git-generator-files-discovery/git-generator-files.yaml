@@ -25,9 +25,7 @@ spec:
         path: "examples/git-generator-files-discovery/apps/guestbook"
         kustomize:
           images:
-            - name: gcr.io/heptio-images/ks-guestbook-demo
-              newName: gcr.io/heptio-images/ks-guestbook-demo
-              newTag: '{{image}}'  # Ensure this is passed as a string
+            - gcr.io/heptio-images/ks-guestbook-demo=gcr.io/heptio-images/ks-guestbook-demo:3
       destination:
         server: '{{cluster.address}}'
         namespace: guestbook
