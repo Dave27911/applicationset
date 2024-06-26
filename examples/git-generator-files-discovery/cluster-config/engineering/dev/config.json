@@ -1,10 +1,10 @@
 {
   "cluster" : {
     "owner" : "cluster-admin@company.com",
-    "name" : "devopstesting",
+    "name" : "develop-cluster",
     "address" : "https://kubernetes.default.svc"
   },
   "aws_account" : "123456",
   "name" : "test_dev",
-  "asset_id" : "9"
+  "asset_id" : "12"
 }
