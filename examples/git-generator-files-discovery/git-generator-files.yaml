@@ -9,12 +9,6 @@ spec:
         revision: HEAD
         files:
         - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
-    - list:
-        elements:
-          - cluster:
-              name: "test-cluster"
-              address: "https://kubernetes.default.svc/"
-            image: "gcr.io/heptio-images/ks-guestbook-demo:0.2"
   template:
     metadata:
       name: '{{cluster.name}}-guestbook'
@@ -28,3 +22,6 @@ spec:
         #server: https://kubernetes.default.svc
         server: '{{cluster.address}}'
         namespace: guestbook
+      parameters:
+      - name: image
+        value: '{{image}}'
