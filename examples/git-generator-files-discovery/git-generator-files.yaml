@@ -4,19 +4,12 @@ metadata:
   name: guestbook
   namespace: argocd
 spec:
-  kustomize:
-    images:
-      - 'gcr.io/heptio-images/ks-guestbook-demo:0.2'
   generators:
     - git:
         repoURL: https://github.com/salazarch/applicationset.git
         revision: HEAD
         files:
           - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
-    - list:
-        elements:
-          - name: guestbook
-            image: "0.1"  # Ensure this is a string
   template:
     metadata:
       name: '{{name}}-guestbook'
@@ -26,9 +19,6 @@ spec:
         repoURL: https://github.com/salazarch/applicationset.git
         targetRevision: HEAD
         path: "examples/git-generator-files-discovery/apps/guestbook"
-        kustomize:
-          images:
-          - 'gcr.io/heptio-images/ks-guestbook-demo:0.2'
       destination:
         server: '{{cluster.address}}'
         namespace: guestbook
