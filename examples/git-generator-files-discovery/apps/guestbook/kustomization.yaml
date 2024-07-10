@@ -1,10 +1,30 @@
 namePrefix: kustomize-
 
-resources:
-- guestbook-ui-deployment.yaml
-- guestbook-ui-svc.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-patchesStrategicMerge:
-  - replacements.yaml
+resources:
+- guestbook-ui-deployment.yaml
+- guestbook-ui-svc.yaml
+
+patches:
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: guestbook-ui
+    spec:
+      template:
+        metadata:
+          labels:
+            app: guestbook-ui
+        spec:
+          containers:
+            - name: guestbook-ui
+              image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+              ports:
+                - containerPort: 8080
+      replicas: 2
+  target:
+    kind: Deployment
+    name: guestbook-ui
