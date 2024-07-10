@@ -5,7 +5,7 @@ replacements:
   - target:
       kind: Deployment
       name: guestbook-ui
-    path: deployment.yaml
+    path: guestbook-ui-deployment.yaml
     values:
       - path: metadata.name
         value: demo-service
