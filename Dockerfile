@@ -21,7 +21,7 @@ RUN rm -f ./bin/*
 # Build
 RUN make build
 
-FROM docker.io/library/ubuntu:21.10
+FROM docker.io/library/ubuntu:24.10
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get dist-upgrade -y && \
